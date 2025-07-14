@@ -1,5 +1,4 @@
-{
-  "categories": [
+[
     { "id": "1", "name": "Food & Dining", "color": "#FF6B6B", "isCustom": false },
     { "id": "2", "name": "Transportation", "color": "#4ECDC4", "isCustom": false },
     { "id": "3", "name": "Shopping", "color": "#45B7D1", "isCustom": false },
@@ -11,4 +10,3 @@
     { "id": "9", "name": "Groceries", "color": "#BB8FCE", "isCustom": false },
     { "id": "10", "name": "Gas", "color": "#85C1E9", "isCustom": false }
   ]
-}

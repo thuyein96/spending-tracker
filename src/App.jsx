@@ -1,17 +1,17 @@
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import './App.css'
 import categoryData from './utils/spending-category.json'
+import DataTable from './components/DataTable'
 
 function App() {
-  const categories = categoryData.categories
+  const categories = categoryData
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
 
-  const [records, setRecords] = useState([])
+  const records = window.localStorage.getItem('records') ? JSON.parse(window.localStorage.getItem('records')) : []
 
   const onSubmit = (data) => {
     console.log(data)
@@ -24,59 +24,69 @@ function App() {
     }
     console.log(record)
     records.push(record)
-    setRecords([...records])
+    //setRecords([...records])
+    localStorage.setItem('records', JSON.stringify(records))
+    alert('Expense added successfully!')
 
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="date">Date</label>
-          <input
-            type="date"
-            id="date"
-            {...register("date")}
-          />
+    
+      <div className="app-container">
+        <div className="app-header">
+          <h1>Spending Tracker</h1>
+          <p>Track your expenses and manage your budget</p>
         </div>
-          <label htmlFor="category">Category</label>
-          <div className="space-y-3">
-            <select
-              {...register("category")}
-            >
-              {categories.map((category, index) => {
-                return (
-                  <option key={index} value={category.id}>{category.name}</option>
-                )
-              }
-              )
-              }
-            </select>
-          </div>
-          <div>
-              <label htmlFor="amount">Amount</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <span className="text-gray-500">฿</span>
-                </div>
+        
+        <div className="main-layout">
+          <div className="form-section">
+            <h2>Add New Expense</h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="form-group">
+                <label htmlFor="date">Date</label>
                 <input
-                  style={{ textAlign: 'right' }}
-                  type="number"
-                  {...register("amount")} />
+                  type="date"
+                  id="date"
+                  {...register("date")}
+                />
               </div>
-            </div>
-            <button type="submit">Submit</button>
-      </form>
-
-      <div>
-        <h3>Records:</h3>
-        {records.map(record => (
-          <div key={record.id}>
-            {record.name} - ฿{record.amount} - {record.date}
+              
+              <div className="form-group">
+                <label htmlFor="category">Category</label>
+                <select {...register("category")}>
+                  <option value="">Select a category</option>
+                  {categories.map((category, index) => (
+                    <option key={index} value={category.id}>{category.name}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="amount">Amount</label>
+                <div className="amount-input-container">
+                  <span className="currency-symbol">฿</span>
+                  <input
+                    type="number"
+                    id="amount"
+                    step="0.01"
+                    min="0"
+                    placeholder="0.00"
+                    {...register("amount")}
+                  />
+                </div>
+              </div>
+              
+              <button type="submit" className="submit-btn">Add Expense</button>
+            </form>
           </div>
-        ))}
-      </div> 
-    </>
+
+          <div className="table-section">
+            <h2>Expense Records</h2>
+            <DataTable data={records} />
+          </div>
+        </div>
+      </div>
+    
   )
 }
 
