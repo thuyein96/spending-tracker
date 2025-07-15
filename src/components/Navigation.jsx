@@ -5,12 +5,12 @@ const Navigation = () => {
     <nav className="navigation">
       <div className="nav-container">
         <div>
-          <Link to="/" className="nav-logo">
+          <Link to="/spending-tracker" className="nav-logo">
             💰 Spending Tracker
           </Link>
         </div>
         <div className="nav-links">
-          <Link to="/" className="nav-link">
+          <Link to="/spending-tracker" className="nav-link">
             🏠 Home
           </Link>
           <Link to="/dashboard" className="nav-link">

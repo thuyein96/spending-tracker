@@ -112,13 +112,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Adjust main content to account for sticky navigation */
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 /* Main Layout Grid */
 .main-layout {
   display: grid;
@@ -371,5 +364,58 @@ body {
   .nav-link {
     font-size: 0.9rem;
     padding: 0.4rem 0.8rem;
+  }
+}
+
+
+/* Dashboard Styles - Simple and Clean */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Chart Cards */
+.dataCard {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 350px;
+}
+
+/* Line chart takes full width */
+.lineCard {
+  grid-column: 1 / -1;
+}
+
+/* Bar and Pie charts are in the same row */
+.barCard {
+  grid-column: 1;
+}
+
+.pieCard {
+  grid-column: 2;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .dataCard {
+    height: 300px;
+  }
+  
+  .lineCard,
+  .barCard,
+  .pieCard {
+    grid-column: 1;
   }
 }
