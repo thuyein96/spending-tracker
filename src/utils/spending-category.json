@@ -1,12 +1,12 @@
 [
-    { "id": "1", "name": "Food & Dining", "color": "#FF6B6B", "isCustom": false },
-    { "id": "2", "name": "Transportation", "color": "#4ECDC4", "isCustom": false },
-    { "id": "3", "name": "Shopping", "color": "#45B7D1", "isCustom": false },
-    { "id": "4", "name": "Entertainment", "color": "#96CEB4", "isCustom": false },
-    { "id": "5", "name": "Bills & Utilities", "color": "#FFEAA7", "isCustom": false },
-    { "id": "6", "name": "Healthcare", "color": "#DDA0DD", "isCustom": false },
-    { "id": "7", "name": "Education", "color": "#98D8C8", "isCustom": false },
-    { "id": "8", "name": "Travel", "color": "#F7DC6F", "isCustom": false },
-    { "id": "9", "name": "Groceries", "color": "#BB8FCE", "isCustom": false },
-    { "id": "10", "name": "Gas", "color": "#85C1E9", "isCustom": false }
-  ]
+  { "id": "1", "name": "Food & Dining", "color": "#FF6B6B", "isCustom": false },
+  { "id": "2", "name": "Transportation", "color": "#4ECDC4", "isCustom": false },
+  { "id": "3", "name": "Shopping", "color": "#45B7D1", "isCustom": false },
+  { "id": "4", "name": "Entertainment", "color": "#96CEB4", "isCustom": false },
+  { "id": "5", "name": "Bills & Utilities", "color": "#FFEAA7", "isCustom": false },
+  { "id": "6", "name": "Healthcare", "color": "#DDA0DD", "isCustom": false },
+  { "id": "7", "name": "Education", "color": "#98D8C8", "isCustom": false },
+  { "id": "8", "name": "Travel", "color": "#F7DC6F", "isCustom": false },
+  { "id": "9", "name": "Groceries", "color": "#BB8FCE", "isCustom": false },
+  { "id": "10", "name": "Gas", "color": "#85C1E9", "isCustom": false }
+]

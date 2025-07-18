@@ -1,12 +1,46 @@
-# React + Vite
+# 💰 Spending Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based expense tracking application built with Vite. Track your daily expenses with predefined categories or create custom ones, and visualize your spending patterns with interactive charts.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add Expenses**: Record expenses with date, category, and amount (Thai Baht ฿)
+- **Predefined Categories**: 10 built-in categories (Food, Transportation, Shopping, etc.)
+- **Custom Categories**: Add "Other" category with custom names
+- **Expense History**: View all expenses sorted by date
+- **Visual Dashboard**: Interactive charts showing spending by category and trends
+- **Local Storage**: Data persists in browser localStorage
 
-## Expanding the ESLint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Install dependencies**
+
+   ```bash
+   pnpm install
+   ```
+
+2. **Start development server**
+
+   ```bash
+   pnpm dev
+   ```
+
+3. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 🛠️ Built With
+
+- **React 19** - UI framework
+- **Vite** - Build tool and dev server
+- **React Hook Form** - Form handling
+- **Chart.js** - Data visualization
+- **React Router** - Navigation
+
+## 📱 Pages
+
+- **Home** (`/spending-tracker`) - Add new expenses and view records table
+- **Dashboard** (`/dashboard`) - View spending analytics and charts
+
+## 💾 Data Storage
+
+All expense data is stored in browser localStorage. No external database required.

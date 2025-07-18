@@ -1,35 +1,45 @@
-import { useForm } from 'react-hook-form';
-import categories from '../utils/spending-category.json';
-import DataTable from './DataTable';
+import { useForm } from "react-hook-form"
+import { useState } from "react"
+import categories from "../utils/spending-category.json"
+import DataTable from "./DataTable"
 
 const SpendingForm = () => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm()
 
-  const records = window.localStorage.getItem("records")
-    ? JSON.parse(window.localStorage.getItem("records"))
-    : [];
+  const [isOtherSelected, setIsOtherSelected] = useState(false)
+  const [customCategory, setCustomCategory] = useState("")
+
+  const records = window.localStorage.getItem("records") ? JSON.parse(window.localStorage.getItem("records")) : []
 
   const onSubmit = (data) => {
-    console.log(data);
-    const category = categories.find((category) => category.id === data.category);
+    console.log(data)
+
+    let categoryName
+    if (data.category === "other") {
+      categoryName = customCategory || "Other"
+    } else {
+      const category = categories.find((category) => category.id === data.category)
+      categoryName = category.name
+    }
+
     const record = {
       id: records.length + 1,
-      name: category.name,
+      name: categoryName,
       amount: data.amount,
       date: data.date,
-      month: new Date(data.date).toLocaleString('default', { month: 'long' }),
+      month: new Date(data.date).toLocaleString("default", { month: "long" }),
       year: new Date(data.date).getFullYear(),
-    };
-    console.log(record);
-    records.push(record);
-    localStorage.setItem("records", JSON.stringify(records));
-    alert("Expense added successfully!");
+    }
+    console.log(record)
+    records.push(record)
+    localStorage.setItem("records", JSON.stringify(records))
+    alert("Expense added successfully!")
+    // Reset custom category state
+    setIsOtherSelected(false)
+    setCustomCategory("")
     // Reload the page to show updated data
-    window.location.reload();
-  };
+    window.location.reload()
+  }
 
   return (
     <div className="app-container">
@@ -44,20 +54,44 @@ const SpendingForm = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
               <label htmlFor="date">Date</label>
-              <input type="date" id="date" {...register("date")} />
+              <input type="date" id="date" {...register("date")} required />
             </div>
 
             <div className="form-group">
               <label htmlFor="category">Category</label>
-              <select {...register("category")}>
-                <option value="">Select a category</option>
+              <select
+                {...register("category")}
+                onChange={(e) => {
+                  setIsOtherSelected(e.target.value === "other")
+                  if (e.target.value !== "other") {
+                    setCustomCategory("")
+                  }
+                }}
+                required
+              >
+                <option value="">Select a category asdfad</option>
                 {categories.map((category, index) => (
                   <option key={index} value={category.id}>
                     {category.name}
                   </option>
                 ))}
+                <option value="other">Other</option>
               </select>
             </div>
+
+            {isOtherSelected && (
+              <div className="form-group">
+                <label htmlFor="customCategory">Custom Category</label>
+                <input
+                  type="text"
+                  id="customCategory"
+                  placeholder="Enter custom category name"
+                  value={customCategory}
+                  onChange={(e) => setCustomCategory(e.target.value)}
+                  required
+                />
+              </div>
+            )}
 
             <div className="form-group">
               <label htmlFor="amount">Amount</label>
@@ -70,6 +104,7 @@ const SpendingForm = () => {
                   min="0"
                   placeholder="0.00"
                   {...register("amount")}
+                  required
                 />
               </div>
             </div>
@@ -86,7 +121,7 @@ const SpendingForm = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SpendingForm;
+export default SpendingForm
