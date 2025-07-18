@@ -69,7 +69,7 @@ const SpendingForm = () => {
                 }}
                 required
               >
-                <option value="">Select a category asdfad</option>
+                <option value="">Select a category</option>
                 {categories.map((category, index) => (
                   <option key={index} value={category.id}>
                     {category.name}
