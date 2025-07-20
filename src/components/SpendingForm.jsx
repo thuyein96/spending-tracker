@@ -1,6 +1,6 @@
-import { useForm } from "react-hook-form"
 import { useState } from "react"
-import categories from "../utils/spending-category.json"
+import { useForm } from "react-hook-form"
+import categories from "../utils/spending_data.json"
 import DataTable from "./DataTable"
 
 const SpendingForm = () => {
@@ -18,8 +18,8 @@ const SpendingForm = () => {
     if (data.category === "other") {
       categoryName = customCategory || "Other"
     } else {
-      const category = categories.find((category) => category.id === data.category)
-      categoryName = category.name
+      const category = categories.find((category) => category.spending_id.toString() === data.category)
+      categoryName = category?.category || "Unknown"
     }
 
     const record = {
@@ -71,8 +71,8 @@ const SpendingForm = () => {
               >
                 <option value="">Select a category</option>
                 {categories.map((category, index) => (
-                  <option key={index} value={category.id}>
-                    {category.name}
+                  <option key={index} value={category.spending_id}>
+                    {category.category}
                   </option>
                 ))}
                 <option value="other">Other</option>

@@ -378,6 +378,42 @@ body {
   gap: 20px;
 }
 
+/* .dashboard-header{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  gap: 1rem;
+} */
+
+.filters {
+  color: #222;
+  font-weight: 500;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+.filters label {
+  margin-right: 0.5rem;
+}
+
+.filters select,
+.filters input[type="date"] {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  color: black;
+}
+
+.totals {
+  text-align: right;
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 /* Chart Cards */
 .dataCard {
   background: white;
