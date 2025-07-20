@@ -39,8 +39,21 @@ A simple React-based expense tracking application built with Vite. Track your da
 ## 📱 Pages
 
 - **Home** (`/spending-tracker`) - Add new expenses and view records table
+  ![Home Page](public/screenshots/home_local.png)
 - **Dashboard** (`/dashboard`) - View spending analytics and charts
+   - Filter By Daily 
+     ![Daily Page](public/screenshots/daily_local.png)
+   - Filter By Weekly 
+     ![Weekly Page](public/screenshots/weekly_local.png)
+   - Filter By Monthly 
+     ![Monthly Page](public/screenshots/monthly_local.png)
 
 ## 💾 Data Storage
 
 All expense data is stored in browser localStorage. No external database required.
+
+
+## 🤝Team Members
+- Thu Yein
+- Sai Zin Min Khant
+- Hsu Yee Mon
